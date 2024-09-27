@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: jwtauthentication
+    ports:
+      - "5432:5432"
+
+  jwtauthentication.api:
+    image: ${DOCKER_REGISTRY-}jwtauthenticationapi
+    build:
+      context: .
+      dockerfile: src/JWTAuthentication.API/Dockerfile
+    environment:
+      - DOCKER_ENVIROMENT=DockerDevelopment
+    depends_on:
+      - postgres

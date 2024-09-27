@@ -2,6 +2,7 @@
 
 public static class OptionsConstants
 {
-    public const string DefaultConnectionSection = "DefaultConnection";
+    public const string ContainerConnectionSection = "ContainerConnection";
+    public const string LocalConnectionSection = "LocalConnection";
     public const string TokenSection = "Token";
 }

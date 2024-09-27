@@ -1,5 +1,6 @@
 ﻿using JWTAuthentication.API.Constants;
 using JWTAuthentication.API.Data.DatabaseContexts;
+using JWTAuthentication.API.Factories;
 using Microsoft.EntityFrameworkCore;
 
 namespace JWTAuthentication.API.DependencyInjection;
@@ -12,7 +13,7 @@ internal static class DependencyInjectionHandler
         services.AddSwaggerDependencyInjection();
 
         services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseNpgsql(configuration.GetConnectionString(OptionsConstants.DefaultConnectionSection)));
+            options.UseNpgsql(configuration.GetConnectionString()));
 
         services.AddIdentityDependencyInjection();
         services.AddOptionsDependencyInjection(configuration);

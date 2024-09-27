@@ -22,6 +22,7 @@ else
 }
 
 app.UseCors(CorsPoliciesNamesConstants.CorsPolicy);
+app.MigrateDatabase();
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
