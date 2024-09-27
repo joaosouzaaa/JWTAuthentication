@@ -12,3 +12,4 @@ The goal of this project is to show the implementation of jwt authentication usi
 - JWT
 - xUnit
 - Moq
+- Docker
