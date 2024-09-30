@@ -12,7 +12,8 @@ public sealed class UserRepository(
     UserManager<User> userManager,
     SignInManager<User> signInManager,
     ApplicationDbContext dbContext)
-    : IUserRepository
+    : IUserRepository,
+    IDisposable
 {
     public Task CreateAsync(User user) =>
         userManager.CreateAsync(user, user.PasswordHash!);
@@ -29,4 +30,12 @@ public sealed class UserRepository(
 
     public Task<bool> UserNameExistsAsync(string userName, CancellationToken cancellationToken) =>
         dbContext.Users.AnyAsync(u => u.UserName == userName, cancellationToken);
+
+    public void Dispose()
+    {
+        dbContext.Dispose();
+        userManager.Dispose();
+
+        GC.SuppressFinalize(this);
+    }
 }
