@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace JWTAuthentication.API.Filters;
 
-internal sealed class NotificationFilter(INotificationHandler notificationHandler) : ActionFilterAttribute
+public sealed class NotificationFilter(INotificationHandler notificationHandler) : ActionFilterAttribute
 {
     public override void OnActionExecuted(ActionExecutedContext context)
     {
