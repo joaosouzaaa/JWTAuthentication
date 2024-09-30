@@ -14,10 +14,8 @@ public sealed class UserRepository(
     ApplicationDbContext dbContext)
     : IUserRepository
 {
-    public async Task CreateAsync(User user)
-    {
-        var rn = await userManager.CreateAsync(user, user.PasswordHash!);
-    }
+    public Task CreateAsync(User user) =>
+        userManager.CreateAsync(user, user.PasswordHash!);
 
     public Task<User?> GetByPredicateAsync(Expression<Func<User, bool>> predicate, CancellationToken cancellationToken) =>
         dbContext.Users.FirstOrDefaultAsync(predicate, cancellationToken);
