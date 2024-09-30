@@ -26,7 +26,7 @@ internal sealed class UserBuilder
         new(_userName,
             _password);
 
-    public GetUserByIdResponse GetbyIdResponseBuild() =>
+    public GetUserByIdResponse GetByIdResponseBuild() =>
         new(_id,
             _userName);
 

@@ -195,7 +195,7 @@ public sealed class UserServiceTests
             It.IsAny<CancellationToken>()))
             .ReturnsAsync(user);
 
-        var getByIdResponse = UserBuilder.NewObject().GetbyIdResponseBuild();
+        var getByIdResponse = UserBuilder.NewObject().GetByIdResponseBuild();
         _userMapperMock.Setup(u => u.DomainToGetByIdResponse(
             It.IsAny<User>()))
             .Returns(getByIdResponse);
