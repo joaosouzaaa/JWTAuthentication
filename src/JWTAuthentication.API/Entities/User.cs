@@ -2,6 +2,4 @@
 
 namespace JWTAuthentication.API.Entities;
 
-public sealed class User : IdentityUser
-{
-}
+public sealed class User : IdentityUser;

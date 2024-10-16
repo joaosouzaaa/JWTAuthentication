@@ -4,6 +4,4 @@ using Microsoft.EntityFrameworkCore;
 
 namespace JWTAuthentication.API.Data.DatabaseContexts;
 
-public sealed class ApplicationDbContext(DbContextOptions options) : IdentityDbContext<User>(options)
-{
-}
+public sealed class ApplicationDbContext(DbContextOptions options) : IdentityDbContext<User>(options);
